@@ -1,0 +1,1 @@
+Same as 2.2.1, but with bigger text and more clarity in some menus.
