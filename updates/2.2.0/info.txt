@@ -1,0 +1,1 @@
+Fixes updates menu so that it is compatible with the current repo structure. Updating crashes below this version.
