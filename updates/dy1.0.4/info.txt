@@ -1,0 +1,1 @@
+Doesn't have integrated test mode, so it will just update to latest on boot. This version is mostly unusable.
