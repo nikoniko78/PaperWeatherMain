@@ -1,0 +1,1 @@
+Stable release of Version 3 with bugfixes, menu improvements,faster rendering and boot times, and customization!
