@@ -1,10 +1,5 @@
-# Build artifacts and environments
 .pio/
 .vscode/
-
-# Local sensitive files
 .github_token
-
-# OS files
 .DS_Store
 Thumbs.db
