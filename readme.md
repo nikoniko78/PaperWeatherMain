@@ -1,4 +1,4 @@
-# Creator Notes 
+# Repo Structure
 
 ### Prefixes
 
