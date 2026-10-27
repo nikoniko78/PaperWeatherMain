@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YAWOS Feature Requests</title>
+<meta name="description" content="Suggest a feature for Yet Another Weather OS, the M5Paper e-ink weather firmware.">
+<style>
+:root{--bg:#eceef1;--card:#fff;--line:#cfd4dc;--ink:#1d2330;--muted:#5a6372;--accent:#1d2330;--accent-ink:#fff;--soft:#f5f6f8;--code:#eef0f4}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--card:#1d2129;--line:#323946;--ink:#e8ebf0;--muted:#98a1b0;--accent:#e8ebf0;--accent-ink:#14171d;--soft:#242933;--code:#262b35}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:46rem;margin:0 auto;padding:1.2rem 1rem 3rem}
+header{display:flex;align-items:center;gap:.8rem;padding:.4rem 0 1.2rem}
+.mark{width:2.6rem;height:2.6rem;border-radius:.7rem;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:800;letter-spacing:.02em;font-size:.8rem}
+header h1{margin:0;font-size:1.15rem;line-height:1.2}
+header p{margin:0;color:var(--muted);font-size:.85rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem;margin-bottom:1rem}
+.hero h2{margin:.1rem 0 .4rem;font-size:1.6rem;line-height:1.25}
+.hero p{margin:0 0 1.1rem;color:var(--muted)}
+.btn{display:inline-block;font:inherit;font-weight:600;text-decoration:none;padding:.8rem 1.3rem;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line);margin-left:.5rem}
+.btn:hover{opacity:.88}
+h3{margin:0 0 .6rem;font-size:1.05rem}
+ul,ol{margin:.2rem 0 0;padding-left:1.25rem}
+li{margin:.3rem 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.btn.alt{margin:.5rem 0 0}}
+.do li::marker{color:#2f8f4e}
+.dont li::marker{color:#c0392b}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;overflow:auto;font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;margin:.6rem 0 0;white-space:pre-wrap}
+code{background:var(--code);padding:.08rem .35rem;border-radius:5px;font:.9em ui-monospace,SFMono-Regular,Menlo,monospace}
+.note{background:var(--soft);border-left:4px solid var(--accent);border-radius:8px;padding:.7rem 1rem;margin-top:.8rem;color:var(--muted);font-size:.95rem}
+.status{margin:.8rem 0 0;font-weight:600}label{display:block;margin:.9rem 0 0;font-size:.95rem;font-weight:600}input,select,textarea{font:inherit;width:100%;padding:.65rem;margin:.3rem 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-weight:400}button.btn{cursor:pointer;margin-top:1.1rem}footer{color:var(--muted);font-size:.85rem;text-align:center;margin-top:1.5rem}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="mark">YAWOS</div>
+<div><h1>Yet Another Weather OS</h1><p>Feature requests</p></div>
+</header>
+
+<section class="card hero">
+<h2>Have an idea for YAWOS?</h2>
+<p>Read the short guide below, then write your request in the form. It is posted on GitHub as a public request.</p>
+<a class="btn" href="#form">Write a request</a>
+</section>
+
+<section class="card">
+<h3>Before you write</h3>
+<ol>
+<li>Update to the newest version in <code>Settings &rarr; Updates manager</code>. Your idea may already exist.</li>
+<li>Send one idea per request so each can be tracked on its own.</li>
+<li>Describe what you want to happen. How it gets built is up to the maintainer.</li>
+</ol>
+</section>
+
+<section class="grid">
+<div class="card do">
+<h3>Good requests</h3>
+<ul>
+<li>Start with the problem you want solved</li>
+<li>Describe what you would expect to see or press</li>
+<li>Mention the screen, such as forecast, 7-day or a settings menu</li>
+<li>Note your firmware version from the footer of the main screen</li>
+<li>Describe the layout in words when it is visual</li>
+</ul>
+</div>
+<div class="card dont">
+<h3>Please avoid</h3>
+<ul>
+<li>Several unrelated ideas in one post</li>
+<li>Repeating the same request many times</li>
+<li>Vague titles such as "improve it"</li>
+<li>Bug reports; say what you expected instead</li>
+<li>Demands or deadlines; this is a hobby project</li>
+</ul>
+</div>
+</section>
+
+<section class="card">
+<h3>Formatting recommendations</h3>
+<ul>
+<li><strong>Title:</strong> short and specific, in the form <code>Area: what you want</code>.</li>
+<li><strong>Structure:</strong> fill in the three boxes: a one-line summary, what it should do, and why it helps.</li>
+<li><strong>Lists:</strong> start lines with <code>-</code> for several behaviours and <code>1.</code> for steps.</li>
+<li><strong>Buttons and menus:</strong> wrap names in backticks, such as <code>Experimental Features</code>.</li>
+<li><strong>Layouts:</strong> describe where things go on the 540 &times; 960 screen, for example "under the high/low row".</li>
+<li><strong>Be mindful of the display:</strong> mention if an idea needs frequent refreshes, since full refreshes are slow and flash.</li>
+</ul>
+<p style="margin:.9rem 0 0">Example:</p>
+<pre>Summary: 7-day: show sunrise and sunset per day
+
+What should it do?
+- Show sunrise and sunset under each day's high/low
+- Keep it hidden when Simple display is on
+
+Why would it help?
+I plan morning walks and want to see daylight at a glance.</pre>
+</section>
+
+<section class="card">
+<h3>Ground rules</h3>
+<ul>
+<li>Be kind and constructive. Disagree with ideas, not people.</li>
+<li>Stay on topic in each thread.</li>
+<li>Do not include Wi-Fi passwords, API keys or private locations.</li>
+<li>A request is a suggestion, not a promise. Popular and small, focused ideas are usually picked up first.</li>
+</ul>
+<div class="note">Requests are posted publicly, so leave out personal information.</div>
+</section>
+
+<section class="card" id="form">
+<h3>Write your request</h3>
+<form id="req" novalidate>
+<label>Summary<input name="summary" maxlength="120" placeholder="7-day: show sunrise and sunset per day" required></label>
+<label>Area<select name="area"><option>Main forecast</option><option>7-day forecast</option><option>Settings menus</option><option>Updates and installer</option><option>Customization</option><option>Web interface</option><option>Battery and power</option><option>Other</option></select></label>
+<label>What should it do?<textarea name="details" rows="6" maxlength="3000" placeholder="- Show sunrise and sunset under each day&#39;s high/low&#10;- Hide it when Simple display is on" required></textarea></label>
+<label>Why would it help?<textarea name="why" rows="3" maxlength="1500"></textarea></label>
+<label>Firmware version (footer of the main screen)<input name="version" maxlength="30" placeholder="1.4.2"></label>
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+<button class="btn" type="submit" id="send">Send request</button>
+<p id="status" class="status" role="status"></p>
+</form>
+</section>
+
+<footer>YAWOS is an open-source M5Paper weather firmware.</footer>
+</div>
+<script>
+const ENDPOINT="__WORKER_URL__";
+const form=document.getElementById("req"),status=document.getElementById("status"),send=document.getElementById("send");
+form.addEventListener("submit",async e=>{
+e.preventDefault();
+const d=Object.fromEntries(new FormData(form).entries());
+if(!d.summary.trim()||!d.details.trim()){status.textContent="Please fill in the summary and what it should do.";return;}
+if(ENDPOINT.includes("__WORKER"+"_URL__")){status.textContent="This form is not connected yet.";return;}
+send.disabled=true;status.textContent="Sending...";
+try{
+const r=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
+const j=await r.json().catch(()=>({}));
+if(r.ok){form.reset();status.textContent="Thanks! Your request was posted as #"+j.number+".";}
+else{status.textContent=j.error||"Could not send. Please try again later.";}
+}catch(err){status.textContent="Could not send. Check your connection.";}
+send.disabled=false;
+});
+</script>
+</body>
+</html>
