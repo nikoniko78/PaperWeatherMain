@@ -1,0 +1,10 @@
+# Ignore everything in the project root by default
+*
+
+# Allow the updates folder and all of its contents
+!/updates/
+!/updates/**
+!/images/
+!/images/**
+!/fonts/
+!/fonts/**
