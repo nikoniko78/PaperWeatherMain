@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>YAWOS Feature Requests</title>
-<meta name="description" content="Suggest a feature for Yet Another Weather OS, the M5Paper e-ink weather firmware.">
+<meta name="description" content="Suggest a feature or report a bug for Yet Another Weather OS, the M5Paper e-ink weather firmware.">
 <style>
 :root{--bg:#eceef1;--card:#fff;--line:#cfd4dc;--ink:#1d2330;--muted:#5a6372;--accent:#1d2330;--accent-ink:#fff;--soft:#f5f6f8;--code:#eef0f4}
 @media (prefers-color-scheme:dark){:root{--bg:#14171d;--card:#1d2129;--line:#323946;--ink:#e8ebf0;--muted:#98a1b0;--accent:#e8ebf0;--accent-ink:#14171d;--soft:#242933;--code:#262b35}}
@@ -39,20 +39,20 @@ a{color:inherit}
 <div class="wrap">
 <header>
 <div class="mark">YAWOS</div>
-<div><h1>Yet Another Weather OS</h1><p>Feature requests</p></div>
+<div><h1>Yet Another Weather OS</h1><p>Feature requests & bug reports</p></div>
 </header>
 
 <section class="card hero">
-<h2>Have an idea for YAWOS?</h2>
-<p>Read the short guide below, then write your request in the form. It is posted on GitHub as a public request.</p>
+<h2>Have an idea or found a bug?</h2>
+<p>Read the short guide below, then write your request in the form. It is posted on GitHub as a public issue.</p>
 <a class="btn" href="#form">Write a request</a>
 </section>
 
 <section class="card">
 <h3>Before you write</h3>
 <ol>
-<li>Update to the newest version in <code>Settings &rarr; Updates manager</code>. Your idea may already exist.</li>
-<li>Send one idea per request so each can be tracked on its own.</li>
+<li>Update to the newest version in <code>Settings &rarr; Updates manager</code>. Your issue may already be fixed.</li>
+<li>Send one topic per post so each can be tracked on its own.</li>
 <li>Describe what you want to happen. How it gets built is up to the maintainer.</li>
 </ol>
 </section>
@@ -74,7 +74,6 @@ a{color:inherit}
 <li>Several unrelated ideas in one post</li>
 <li>Repeating the same request many times</li>
 <li>Vague titles such as "improve it"</li>
-<li>Bug reports; say what you expected instead</li>
 <li>Demands or deadlines; this is a hobby project</li>
 </ul>
 </div>
@@ -84,42 +83,43 @@ a{color:inherit}
 <h3>Formatting recommendations</h3>
 <ul>
 <li><strong>Title:</strong> short and specific, in the form <code>Area: what you want</code>.</li>
-<li><strong>Structure:</strong> fill in the three boxes: a one-line summary, what it should do, and why it helps.</li>
+<li><strong>Structure:</strong> fill in the boxes: a one-line summary, what it should do, and why it helps.</li>
 <li><strong>Lists:</strong> start lines with <code>-</code> for several behaviours and <code>1.</code> for steps.</li>
 <li><strong>Buttons and menus:</strong> wrap names in backticks, such as <code>Experimental Features</code>.</li>
-<li><strong>Layouts:</strong> describe where things go on the 540 &times; 960 screen, for example "under the high/low row".</li>
-<li><strong>Be mindful of the display:</strong> mention if an idea needs frequent refreshes, since full refreshes are slow and flash.</li>
+<li><strong>Layouts:</strong> describe where things go on the 540 &times; 960 screen.</li>
 </ul>
-<p style="margin:.9rem 0 0">Example:</p>
-<pre>Summary: 7-day: show sunrise and sunset per day
-
-What should it do?
-- Show sunrise and sunset under each day's high/low
-- Keep it hidden when Simple display is on
-
-Why would it help?
-I plan morning walks and want to see daylight at a glance.</pre>
-</section>
-
-<section class="card">
-<h3>Ground rules</h3>
-<ul>
-<li>Be kind and constructive. Disagree with ideas, not people.</li>
-<li>Stay on topic in each thread.</li>
-<li>Do not include Wi-Fi passwords, API keys or private locations.</li>
-<li>A request is a suggestion, not a promise. Popular and small, focused ideas are usually picked up first.</li>
-</ul>
-<div class="note">Requests are posted publicly, so leave out personal information.</div>
 </section>
 
 <section class="card" id="form">
-<h3>Write your request</h3>
+<h3>Submit Feedback</h3>
 <form id="req" novalidate>
+<label>Type
+  <select name="type">
+    <option value="Feature Request">Feature Request</option>
+    <option value="Bug Report">Bug Report</option>
+    <option value="Question">Question</option>
+  </select>
+</label>
+
 <label>Summary<input name="summary" maxlength="120" placeholder="7-day: show sunrise and sunset per day" required></label>
-<label>Area<select name="area"><option>Main forecast</option><option>7-day forecast</option><option>Settings menus</option><option>Updates and installer</option><option>Customization</option><option>Web interface</option><option>Battery and power</option><option>Other</option></select></label>
-<label>What should it do?<textarea name="details" rows="6" maxlength="3000" placeholder="- Show sunrise and sunset under each day&#39;s high/low&#10;- Hide it when Simple display is on" required></textarea></label>
-<label>Why would it help?<textarea name="why" rows="3" maxlength="1500"></textarea></label>
-<label>Firmware version (footer of the main screen)<input name="version" maxlength="30" placeholder="1.4.2"></label>
+
+<label>Area
+  <select name="area">
+    <option>Main forecast</option>
+    <option>7-day forecast</option>
+    <option>Settings menus</option>
+    <option>Updates and installer</option>
+    <option>Customization</option>
+    <option>Web interface</option>
+    <option>Battery and power</option>
+    <option>Other</option>
+  </select>
+</label>
+
+<label>What should it happen / Details<textarea name="details" rows="6" maxlength="3000" placeholder="- Show sunrise and sunset under each day&#39;s high/low&#10;- Hide it when Simple display is on" required></textarea></label>
+<label>Why would it help? (Optional)<textarea name="why" rows="3" maxlength="1500"></textarea></label>
+<label>Firmware version (footer of main screen)<input name="version" maxlength="30" placeholder="1.4.2"></label>
+
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 <button class="btn" type="submit" id="send">Send request</button>
 <p id="status" class="status" role="status"></p>
@@ -130,20 +130,49 @@ I plan morning walks and want to see daylight at a glance.</pre>
 </div>
 <script>
 const ENDPOINT="https://yawos-feature-backend.redstonetech78.workers.dev";
-const form=document.getElementById("req"),status=document.getElementById("status"),send=document.getElementById("send");
+const form=document.getElementById("req"),statusDiv=document.getElementById("status"),send=document.getElementById("send");
+
 form.addEventListener("submit",async e=>{
-e.preventDefault();
-const d=Object.fromEntries(new FormData(form).entries());
-if(!d.summary.trim()||!d.details.trim()){status.textContent="Please fill in the summary and what it should do.";return;}
-if(ENDPOINT.includes("__WORKER"+"_URL__")){status.textContent="This form is not connected yet.";return;}
-send.disabled=true;status.textContent="Sending...";
-try{
-const r=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
-const j=await r.json().catch(()=>({}));
-if(r.ok){form.reset();status.textContent="Thanks! Your request was posted as #"+j.number+".";}
-else{status.textContent=j.error||"Could not send. Please try again later.";}
-}catch(err){status.textContent="Could not send. Check your connection.";}
-send.disabled=false;
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(form).entries());
+  
+  if(!d.summary.trim()||!d.details.trim()){
+    statusDiv.className="error";
+    statusDiv.textContent="Please fill in the summary and details.";
+    return;
+  }
+  if(ENDPOINT.includes("__WORKER"+"_URL__")){
+    statusDiv.className="error";
+    statusDiv.textContent="This form is not connected yet.";
+    return;
+  }
+
+  send.disabled=true;
+  statusDiv.className="";
+  statusDiv.textContent="Sending...";
+
+  try {
+    const r=await fetch(ENDPOINT,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(d)
+    });
+    const j=await r.json().catch(()=>({}));
+    
+    if(r.ok && j.success){
+      form.reset();
+      statusDiv.style.color="#1a7f37";
+      statusDiv.innerHTML='Thanks! Posted successfully: <a href="' + j.issue_url + '" target="_blank">View Issue #' + j.number + '</a>';
+    } else {
+      statusDiv.style.color="#cf222e";
+      statusDiv.textContent="Could not send: " + (j.error || "Please try again later.");
+    }
+  } catch(err){
+    statusDiv.style.color="#cf222e";
+    statusDiv.textContent="Could not send. Check your connection.";
+  } finally {
+    send.disabled=false;
+  }
 });
 </script>
 </body>
