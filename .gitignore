@@ -1,2 +1,14 @@
 .github_token
 .github_token
+/.github
+/.github_token
+/.pio
+/.vscode
+/.wrangler
+/burner.py
+/include
+/make_feature_page.py
+/platformio.ini
+/src
+/worker.js
+/wrangler.toml
