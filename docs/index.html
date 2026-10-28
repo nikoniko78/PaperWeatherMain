@@ -169,7 +169,7 @@ form.addEventListener("submit",async e=>{
     }
   } catch(err){
     statusDiv.style.color="#cf222e";
-    statusDiv.textContent="Could not send ("+err.message+"). Check your connection.";
+    statusDiv.style.color="#9a6700";statusDiv.textContent="Sent, but the confirmation could not be read ("+err.message+"). Check the repo issues to confirm.";
   } finally {
     send.disabled=false;
   }
