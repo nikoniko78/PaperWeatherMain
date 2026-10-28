@@ -1,0 +1,26 @@
+name: Mention Self on Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  mention:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check creator and comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const author = issue.user.login;
+            
+            // Only trigger if you created the issue
+            if (author === 'nikoniko78') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `@nikoniko78 Check Issue: ${issue.title}`
+              });
+            }
