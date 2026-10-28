@@ -129,7 +129,8 @@ a{color:inherit}
 <footer>YAWOS is an open-source M5Paper weather firmware.<br>Site version <span id="ver"></span></footer>
 </div>
 <script>
-const SITE_VERSION="1.2.0";
+const SITE_VERSION="1.2.1";
+const ASSIGNEE="nikoniko78";
 const ENDPOINT="https://yawos-feedback.redstonetech78.workers.dev/";
 document.getElementById("ver").textContent=SITE_VERSION;
 const form=document.getElementById("req"),statusDiv=document.getElementById("status"),send=document.getElementById("send");
@@ -137,6 +138,7 @@ const form=document.getElementById("req"),statusDiv=document.getElementById("sta
 form.addEventListener("submit",async e=>{
   e.preventDefault();
   const d=Object.fromEntries(new FormData(form).entries());
+  d.assignee=ASSIGNEE;
   
   if(!d.summary.trim()||!d.details.trim()){
     statusDiv.className="error";
@@ -170,8 +172,8 @@ form.addEventListener("submit",async e=>{
       statusDiv.textContent="Could not send: " + (j.error || "Please try again later.");
     }
   } catch(err){
-    statusDiv.style.color="#cf222e";
-    statusDiv.style.color="#9a6700";statusDiv.textContent="Sent, but the confirmation could not be read ("+err.message+"). Check the repo issues to confirm.";
+    statusDiv.style.color="#9a6700";
+    statusDiv.textContent="Sent, but the confirmation could not be read ("+err.message+"). Check the repo issues to confirm.";
   } finally {
     send.disabled=false;
   }
