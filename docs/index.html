@@ -154,7 +154,7 @@ form.addEventListener("submit",async e=>{
   try {
     const r=await fetch(ENDPOINT,{
       method:"POST",
-      headers:{"Content-Type":"application/json"},
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
       body:JSON.stringify(d)
     });
     const j=await r.json().catch(()=>({}));
@@ -169,7 +169,7 @@ form.addEventListener("submit",async e=>{
     }
   } catch(err){
     statusDiv.style.color="#cf222e";
-    statusDiv.textContent="Could not send. Check your connection.";
+    statusDiv.textContent="Could not send ("+err.message+"). Check your connection.";
   } finally {
     send.disabled=false;
   }
