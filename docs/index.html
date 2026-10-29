@@ -32,6 +32,7 @@ pre{background:var(--code);border:1px solid var(--line);border-radius:10px;paddi
 code{background:var(--code);padding:.08rem .35rem;border-radius:5px;font:.9em ui-monospace,SFMono-Regular,Menlo,monospace}
 .note{background:var(--soft);border-left:4px solid var(--accent);border-radius:8px;padding:.7rem 1rem;margin-top:.8rem;color:var(--muted);font-size:.95rem}
 .status{margin:.8rem 0 0;font-weight:600}label{display:block;margin:.9rem 0 0;font-size:.95rem;font-weight:600}input,select,textarea{font:inherit;width:100%;padding:.65rem;margin:.3rem 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-weight:400}button.btn{cursor:pointer;margin-top:1.1rem}footer{color:var(--muted);font-size:.85rem;text-align:center;margin-top:1.5rem}
+.hint{margin:.4rem 0 0;color:var(--muted);font-size:.85rem}
 a{color:inherit}
 </style>
 </head>
@@ -85,7 +86,7 @@ a{color:inherit}
 <li><strong>Title:</strong> short and specific, in the form <code>Area: what you want</code>.</li>
 <li><strong>Structure:</strong> fill in the boxes: a one-line summary, what it should do, and why it helps.</li>
 <li><strong>Lists:</strong> start lines with <code>-</code> for several behaviours and <code>1.</code> for steps.</li>
-<li><strong>Buttons and menus:</strong> wrap names in backticks, such as <code>Experimental Features</code>.</li>
+<li><strong>Buttons and menus:</strong> wrap names in backticks, such as <code>Advanced</code>.</li>
 <li><strong>Layouts:</strong> describe where things go on the 540 &times; 960 screen.</li>
 </ul>
 </section>
@@ -116,9 +117,11 @@ a{color:inherit}
   </select>
 </label>
 
-<label>What should it happen / Details<textarea name="details" rows="6" maxlength="3000" placeholder="- Show sunrise and sunset under each day&#39;s high/low&#10;- Hide it when Simple display is on" required></textarea></label>
+<label>Details<textarea name="details" rows="6" maxlength="3000" placeholder="- Show sunrise and sunset under each day&#39;s high/low&#10;- Hide it when Simple display is on" required></textarea></label>
 <label>Why would it help? (Optional)<textarea name="why" rows="3" maxlength="1500"></textarea></label>
 <label>Firmware version (footer of main screen)<input name="version" maxlength="30" placeholder="1.4.2"></label>
+<label>Email me when it is closed (optional)<input name="email" type="email" maxlength="120" placeholder="you@example.com"></label>
+<p class="hint">Your email is kept private and is only used to send one message when this request is closed. It is never posted publicly.</p>
 
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 <button class="btn" type="submit" id="send">Send request</button>
@@ -129,8 +132,7 @@ a{color:inherit}
 <footer>YAWOS is an open-source M5Paper weather firmware.<br>Site version <span id="ver"></span></footer>
 </div>
 <script>
-const SITE_VERSION="1.2.1";
-const ASSIGNEE="nikoniko78";
+const SITE_VERSION="1.4.0";
 const ENDPOINT="https://yawos-feedback.redstonetech78.workers.dev/";
 document.getElementById("ver").textContent=SITE_VERSION;
 const form=document.getElementById("req"),statusDiv=document.getElementById("status"),send=document.getElementById("send");
@@ -138,7 +140,6 @@ const form=document.getElementById("req"),statusDiv=document.getElementById("sta
 form.addEventListener("submit",async e=>{
   e.preventDefault();
   const d=Object.fromEntries(new FormData(form).entries());
-  d.assignee=ASSIGNEE;
   
   if(!d.summary.trim()||!d.details.trim()){
     statusDiv.className="error";
@@ -172,8 +173,8 @@ form.addEventListener("submit",async e=>{
       statusDiv.textContent="Could not send: " + (j.error || "Please try again later.");
     }
   } catch(err){
-    statusDiv.style.color="#9a6700";
-    statusDiv.textContent="Sent, but the confirmation could not be read ("+err.message+"). Check the repo issues to confirm.";
+    statusDiv.style.color="#cf222e";
+    statusDiv.style.color="#9a6700";statusDiv.textContent="Sent, but the confirmation could not be read ("+err.message+"). Check the repo issues to confirm.";
   } finally {
     send.disabled=false;
   }

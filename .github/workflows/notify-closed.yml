@@ -1,0 +1,73 @@
+name: Notify requester
+on:
+  issues:
+    types: [closed]
+permissions:
+  issues: write
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send closing email
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          EMAIL_KEY: ${{ secrets.EMAIL_KEY }}
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+        run: |
+          pip install cryptography >/dev/null
+          python3 - <<'PY'
+          import base64, json, os, re, smtplib, urllib.request
+          from email.message import EmailMessage
+          from email.utils import formataddr
+          from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+          repo = os.environ["REPO"]
+          number = os.environ["NUMBER"]
+
+          def api(path, method="GET", data=None):
+              req = urllib.request.Request(
+                  "https://api.github.com/repos/" + repo + path,
+                  data=json.dumps(data).encode() if data is not None else None,
+                  method=method,
+                  headers={
+                      "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+                      "Accept": "application/vnd.github+json",
+                      "Content-Type": "application/json",
+                  },
+              )
+              with urllib.request.urlopen(req) as response:
+                  return json.loads(response.read().decode())
+
+          issue = api("/issues/" + number)
+          body = issue.get("body") or ""
+          match = re.search(r"<!-- yawos-email:([A-Za-z0-9+/=]+) -->", body)
+          if not match:
+              raise SystemExit(0)
+          key_hex = os.environ["EMAIL_KEY"]
+          raw = base64.b64decode(match.group(1))
+          to = AESGCM(bytes.fromhex(key_hex)).decrypt(raw[:12], raw[12:], None).decode()
+
+          message = "This request was closed as not planned." if issue.get("state_reason") == "not_planned" else "This request was closed as completed."
+          comments = api("/issues/" + number + "/comments?per_page=100")
+          if comments:
+              message = comments[-1]["body"]
+
+          mail = EmailMessage()
+          mail["Subject"] = "[Do Not Reply] Your YAWOS request #" + number + " was closed"
+          mail["From"] = formataddr(("YAWOS (Do Not Reply)", os.environ["MAIL_USERNAME"]))
+          mail["To"] = to
+          mail.set_content(
+              "This is an automated message. Please do not reply to this email.\n\n"
+              "Your request \"" + issue["title"] + "\" (#" + number + ") was closed.\n\n"
+              "Closing message:\n" + message + "\n\n"
+              "Issue link: " + issue["html_url"] + "\n"
+          )
+          with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+              smtp.login(os.environ["MAIL_USERNAME"], os.environ["MAIL_PASSWORD"])
+              smtp.send_message(mail)
+
+          api("/issues/" + number, "PATCH", {"body": body.replace(match.group(0), "").rstrip()})
+          PY
