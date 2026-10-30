@@ -1,6 +1,6 @@
 # Changelog
 
-# <img src="https://files.catbox.moe/5rezvi.png" alt="Update 4.0.0 Vita" width="229" />
+# <img src="https://files.catbox.moe/oj8c51.png" alt="Update 4.0.0 Vita" width="229" />
 
 ## Version 4.0.0+ Vita (public)
 
