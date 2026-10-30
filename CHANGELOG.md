@@ -1,7 +1,6 @@
 # Changelog
 
-# <img src="https://github.com/nikoniko78/PaperWeatherMain/blob/main/docs/update4.png?raw=true" alt="Update 4.0.0 Vita" width="229" />
-
+# <img src="https://github.com/nikoniko78/PaperWeatherMain/blob/main/docs/update4.png?raw=true" alt="Update 4.0.0 Vita" width="300" />
 ## Version 4.0.0+ Vita (public)
 
 - Added Dark Mode flash and refresh features so that it may work on worn out displays.
