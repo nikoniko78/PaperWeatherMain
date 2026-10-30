@@ -1,6 +1,8 @@
 # Changelog
 
-## Version 4.0.0+ (public)
+# <img src="https://files.catbox.moe/5rezvi.png" alt="Update 4.0.0 Vita" width="229" />
+
+## Version 4.0.0+ Vita (public)
 
 - Added Dark Mode flash and refresh features so that it may work on worn out displays.
 - Added refresh method changes to increase customizability and UI speed.
