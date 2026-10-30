@@ -1,6 +1,7 @@
 <img src="https://files.catbox.moe/jkinky.png" alt="Yet Another Weather OS" width="229" />
 
 # Yet Another Weather OS
+### Release 4.0.0 (see [Changelog](https://github.com/nikoniko78/PaperWeatherMain/blob/main/CHANGELOG.md))
 
 YAWOS is an all-in-one weather OS with:
 - Multiple Key-Free API Choices (Open-Meteo, NOAA, MET Norway, wttr.in).
