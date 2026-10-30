@@ -1,5 +1,4 @@
-# <img src="https://files.catbox.moe/jkinky.png" alt="Yet Another Weather OS" width="229" />
-
+<img src="https://files.catbox.moe/jkinky.png" alt="Yet Another Weather OS" width="229" />
 # Yet Another Weather OS
 YAWOS is an all-in-one weather OS with:
 - Multiple Key-Free API Choices (Open-Meteo, NOAA, MET Norway, wttr.in).
@@ -13,9 +12,7 @@ YAWOS is an all-in-one weather OS with:
 ## Instructions
 Holding ButtonA on start will open the WebUI QR. 
 Holding ButtonC on start will open the On-Device Settings.
-
 ### Prefixes in File Structure
-
 ```
 u = Unstable
 n = Nightly
