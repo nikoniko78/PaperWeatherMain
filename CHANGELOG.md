@@ -12,4 +12,4 @@
 - Settings menu now looks better and contains new features like data usage and better Wi-Fi configs.
 
 ### Nightly Updates
-Contain experimental features coming to public soon. Changes will be shown on a public release. If you would like access to nightly updates, please toggle on your device via ```Settings -> Updates Manager -> Nightly Updates.```
+Contain experimental features coming to public soon. Changes will be shown on a public release. If you would like access to nightly updates, please toggle the settings on your device via ```Settings -> Updates Manager -> Nightly Updates.```
