@@ -1,1 +1,1 @@
-Stable full version of Vita 4.0.0+.
+Bridges 4.3.6 to 4.4.0, because of update name rescheming.
